@@ -37,6 +37,7 @@ export function parseRequest(req: IncomingMessage) {
     heights: getArray(heights),
   };
   parsedRequest.images = getDefaultImages(parsedRequest.images, parsedRequest.theme);
+
   return parsedRequest;
 }
 
@@ -55,6 +56,10 @@ function getDefaultImages(images: string[], theme: Theme): string[] {
     theme === "light"
       ? "https://assets.vercel.com/image/upload/front/assets/design/vercel-triangle-black.svg"
       : "https://assets.vercel.com/image/upload/front/assets/design/vercel-triangle-white.svg";
+
+  //   if (!images[0].startsWith("http://localhost:8000/")) {
+  //     images[0] = defaultImage;
+  //   }
 
   if (!images || !images[0]) {
     return [defaultImage];
