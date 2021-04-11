@@ -131,7 +131,7 @@ function getImage(src: string, width = "auto", height = "225") {
         class="logo"
         alt="Generated Image"
         src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
+        width="${sanitizeHtml(width)}%"
         height="${sanitizeHtml(height)}"
     />`;
 }
