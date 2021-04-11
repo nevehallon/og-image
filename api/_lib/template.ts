@@ -10,6 +10,10 @@ const rglr = readFileSync(`${__dirname}/../_fonts/Inter-Regular.woff2`).toString
 const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString("base64");
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString("base64");
 
+const metaImageUrl = "https://og-image-navy-iota.vercel.app/%20?heights=1000&images=data";
+
+const encodedUri = (x: any) => encodeURIComponent(x as string);
+
 function getCss(theme: string, fontSize: string) {
   let background = "white";
   let foreground = "black";
@@ -104,10 +108,24 @@ function getCss(theme: string, fontSize: string) {
 
 export function getHtml(parsedReq: ParsedRequest) {
   const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
-    <title>Generated Image</title>
+    <title>title</title>
+        <meta content="description" name="description" />
+        <meta content="title" property="og:site_name" />
+        <meta
+          content="${metaImageUrl}${encodedUri(images[0])}"
+          property="og:image"
+        />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta content="title" name="twitter:title" />
+        <meta content="description" name="twitter:description" />
+        <meta
+          content="${metaImageUrl}${encodedUri(images[0])}"
+          name="twitter:image"
+        />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         ${getCss(theme, fontSize)}
