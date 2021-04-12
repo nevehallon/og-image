@@ -10,7 +10,7 @@ const rglr = readFileSync(`${__dirname}/../_fonts/Inter-Regular.woff2`).toString
 const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString("base64");
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString("base64");
 
-const metaImageUrl = "https://og-image-navy-iota.vercel.app/%20?heights=1000&images=data";
+const metaImageUrl = "https://og-image-navy-iota.vercel.app/%20?heights=1000&images=";
 
 const encodedUri = (x: any) => encodeURIComponent(x as string);
 
